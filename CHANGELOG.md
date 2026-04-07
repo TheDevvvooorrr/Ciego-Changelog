@@ -39,7 +39,7 @@
 - Shimmer effect on buttons on hover
 - Ripple click animations on all interactive elements
 - Logo ghost icon with animated drop-shadow glow
-- Status bar at bottom (Solana Mainnet • RPC Ready)
+- Status bar at bottom with network indicator
 
 ### Tab Consistency
 - Send Privately, Bridge, and Batch tabs all share the same clean table-based layout
@@ -48,7 +48,7 @@
 - Token selector with dropdown, logos, and balance display
 
 ### Batch Mode Redesign
-- Clean HTML table layout with numbered rows (#, Address, Amount, ×)
+- Clean table layout with numbered rows
 - Auto-numbering on add/remove
 - Green border on valid rows, red on invalid
 - Clear All + Add Recipient buttons
@@ -64,9 +64,9 @@
 - Phase flow: Prepare → Build combined TX → Sign once → Send → Execute bridges
 
 ### Critical Bug Fixes
-- Fixed `sendC` scope bug — was defined in IIFE #1 but exported from IIFE #2 (different scopes)
-- Fixed `FEE_PERCENT` Temporal Dead Zone error in batch mode — renamed to `BATCH_FEE`
-- Fixed WebSocket confirmation fallback — now uses RPC polling when WS unavailable
+- Fixed variable scope bugs in batch processing
+- Fixed fee calculation error in batch mode
+- Fixed transaction confirmation fallback with polling
 - Fixed transactions appearing successful but funds lost due to unconfirmed sends
 
 ---
@@ -74,8 +74,8 @@
 ## v1.8 — Single Phantom Popup (Apr 3, 2026)
 
 ### Send Privately
-- Consolidated all transactions (fee + shadow funding) into one `signAllTransactions` call
-- Single Phantom approval popup instead of multiple
+- Consolidated all transactions into one wallet approval
+- Single popup instead of multiple
 
 ### Batch Mode
 - Reduced to 2 popups (one per recipient) — down from N popups
@@ -94,7 +94,7 @@
 ## v1.6 — Double Bridge / Maximum+ (Apr 3, 2026)
 
 ### Maximum+ Mode (⭐⭐⭐⭐⭐+)
-- Double bridge: Wallet → ChangeNOW → Shadow → ChangeNOW → Recipient
+- Double bridge: Wallet → Private Pool → Shadow → Private Pool → Recipient
 - Two separate bridge hops break any possible on-chain link
 - Works with SOL, USDC, USDT, USD1
 
@@ -107,14 +107,13 @@
 
 ---
 
-## v1.5 — Fee System & Rent Fix (Apr 3, 2026)
+## v1.5 — Fee System & Balance Fix (Apr 3, 2026)
 
-### Fee Wallet
+### Fee System
 - 1% fee on all transactions including shadow wallet funding
-- Fee wallet: `983VntrxFbU1F5yTUszni8CrMi2kMoW3idbshV7kTfhb`
 
 ### Bug Fixes
-- Fixed `InsufficientFundsForRent` on split transactions (fee reduced 25k → 5k lamports)
+- Fixed insufficient funds error on split transactions
 - Batch progress and log UI elements fixed
 
 ---
@@ -125,8 +124,8 @@
 - Significantly reduced transaction processing times
 
 ### Network Resilience
-- All network calls retry automatically with exponential backoff
-- Graceful handling of proxy/RPC intermittent failures (502, timeouts)
+- All network calls retry automatically on failure
+- Graceful handling of intermittent network issues
 - Recovery system hardened against network instability
 
 ### Transaction Reliability
@@ -135,7 +134,7 @@
 - Non-critical cleanup operations no longer block the main transaction flow
 - Eliminated edge cases where transactions could hang indefinitely
 
-### SPL Token Reliability
+### Token Transfer Reliability
 - Fixed funding issue for intermediate wallets
 - All intermediate wallets now properly funded upfront
 
@@ -143,11 +142,11 @@
 
 ## v1.3 — Token Expansion & Stablecoin Fixes (Mar 28, 2026)
 
-### New Token: USD1 (WLFI)
-- Added World Liberty Financial USD1 stablecoin support
+### New Token: USD1
+- Added USD1 stablecoin support
 
 ### USDT Fix
-- Corrected USDT token address — balances now display correctly
+- Corrected USDT display — balances now show correctly
 
 ### Stablecoin Visibility
 - USDC, USDT, and USD1 always appear in token selector regardless of balance
@@ -158,8 +157,8 @@
 ## v1.1 — Bug Fixes & Stability (Mar 28, 2026)
 
 ### Token Transfer Fixes
-- Fixed several edge cases with SPL token transfers
-- Resolved rent-exemption errors in intermediate transactions
+- Fixed several edge cases with token transfers
+- Resolved balance errors in intermediate transactions
 - Improved account cleanup after transaction completion
 
 ### UX Fixes
@@ -174,19 +173,19 @@
 
 ### Platform
 - Web-based interface with Phantom wallet integration
-- Backend proxy for RPC load balancing and reliability
+- Backend proxy for load balancing and reliability
 
 ### Privacy
 - All transactions are private by default
-- Enhanced mode: shadow wallets + Jupiter swaps
-- Maximum mode: ChangeNOW bridge (SOL/LTC route, ~2.5 min)
-- Cross-chain bridge via Monero for untraceable transfers
+- Enhanced mode: shadow wallets + token swaps
+- Maximum mode: private pool bridge (~2.5 min)
+- Cross-chain bridge for untraceable transfers
 
 ### Supported Tokens
 - SOL, USDC, USDT, USD1
 
 ### Cross-Chain Support
-- Multi-chain destination: SOL, ETH, BSC, BTC, BASE, ARB, MATIC, LTC
+- Multi-chain destination support
 - Real-time exchange rate display
 - Recipient address validation per network
 
