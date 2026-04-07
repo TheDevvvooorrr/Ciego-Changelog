@@ -197,3 +197,20 @@
 ---
 
 *Last updated: April 7, 2026*
+
+## v2.2 — Security Hardening (Apr 7, 2026)
+
+### Security
+- Block server-side files from HTTP access (server config, bridge proxy, env, package files)
+- Block dotfiles, backup files, and log files from being served
+- Path traversal protection with decode + normalize + boundary check
+- Content Security Policy restricted to required CDN domains only
+- Security headers: X-Content-Type-Options, Referrer-Policy
+- Rate limiting: 30 requests/min per IP on API proxy endpoints
+- HTML sanitizer for dynamic content injection (XSS prevention)
+- Provider names scrubbed from all client-facing code
+
+### UI
+- Privacy level selector hidden (single mode)
+- Description text styled with accent color
+- Button label updated to "Send Privately"

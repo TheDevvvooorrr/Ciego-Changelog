@@ -61,7 +61,7 @@ Frontend (Vanilla JS)
 ├── Privacy engine (Enhanced mode — DEX routing)
 ├── Maximum engine (Bridge routing + double bridge)
 ├── Bridge module (Cross-chain API integration)
-├── DEX swap module (Jupiter aggregator)
+├── DEX swap module (token aggregator)
 ├── RPC resilience layer (multi-endpoint failover)
 └── Visual effects (particles, glassmorphism, 3D tilt)
 
