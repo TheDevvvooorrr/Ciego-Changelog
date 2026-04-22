@@ -5,11 +5,76 @@
 - Removed implementation files from the public repo.
 - README and changelog standardized for public-safe communication.
 
-## v2.3 — Branding & Documentation Update (Apr 22, 2026)
-- Unified product naming as Ciego.
-- Refined public-facing documentation language.
+## v2.3 — Ciego Branding + Public Docs Hardening (Apr 22, 2026)
+- Project naming unified as **Ciego** in user-facing documentation.
+- README rewritten to product-level language.
+- Changelog standardized to avoid implementation leakage.
+- Privacy posture kept explicit while avoiding internal architecture exposure.
 
 ## v2.2 — Security Hardening (Apr 7, 2026)
-- Security posture improvements documented at product level.
+- Strengthened server-side access controls for sensitive files.
+- Improved request filtering and path-safety protections.
+- Added stricter response/security headers.
+- Reduced exposure of provider-specific details in user-facing output.
+- Privacy level selector hidden (single mode UX).
+- Primary action wording updated to “Send Privately”.
+
+## v2.1 — Docs & UI Cleanup (Apr 7, 2026)
+- Documentation expanded and reorganized.
+- UI simplified for a more focused transfer flow.
+- Branding and wording cleanup for consistency.
+- Hidden non-production tabs from main UI while preserving internal work.
+
+## v2.0 — Exchange-Style UI Redesign (Apr 4, 2026)
+- Full visual redesign to a cleaner exchange-like experience.
+- Improved consistency across key screens and flow sections.
+- Better summaries for amount/fee/total clarity.
+- Refined batch table layout and validation feedback.
+
+## v1.9 — Batch Single-Popup & Stability Fixes (Apr 4, 2026)
+- Consolidated batch approvals into a simpler signing flow.
+- Reduced wallet friction for multi-recipient sends.
+- Fixed high-impact reliability issues in batch execution.
+- Improved fallback confirmation handling.
+
+## v1.8 — Single Popup Flow Improvements (Apr 3, 2026)
+- Send flow optimized to reduce approval popups.
+- Better user continuity between prepare/sign/execute steps.
+
+## v1.7 — Privacy Mode Simplification (Apr 3, 2026)
+- Removed standard mode from user-facing selector.
+- Kept only privacy-focused modes to reduce confusion.
+
+## v1.6 — Maximum+ Double-Hop Privacy Flow (Apr 3, 2026)
+- Added double-hop privacy path for stronger unlinkability.
+- Expanded high-privacy flow coverage for supported assets.
+- Added recovery controls for interrupted sessions.
+
+## v1.5 — Fees & Transaction Cost Reliability (Apr 3, 2026)
+- Unified fee handling across transfer paths.
+- Fixed edge cases related to transaction cost/rent handling.
+- Improved batch progress/log stability.
+
+## v1.4 — Performance & Reliability (Mar 28, 2026)
+- Faster transaction lifecycle and smoother processing.
+- Better resilience under intermittent network conditions.
+- More robust confirmation/retry behavior.
+- Improved pre-execution checks and non-blocking cleanup behavior.
+
+## v1.3 — Token Expansion & Stablecoin Fixes (Mar 28, 2026)
+- Added USD1 support.
+- Corrected stablecoin display/balance edge cases.
+- Improved token selector behavior.
+
+## v1.1 — Bug Fixes & UX Stability (Mar 28, 2026)
+- Fixed transfer edge cases and post-error recovery UX.
+- Improved selector ordering and max-amount behavior.
+- Fixed stuck states after failed attempts.
+
+## v1.0 — Initial Release (Mar 27, 2026)
+- Initial web release with Phantom integration.
+- Private transfer architecture established.
+- Multi-asset support and cross-network destination support.
+- Client-side-first privacy execution model with recovery baseline.
 
 *Last updated: April 22, 2026*
